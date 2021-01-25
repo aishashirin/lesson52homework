@@ -2,13 +2,17 @@ package kz.attractorschool.moviereviewrr.service;
 
 import kz.attractorschool.moviereviewrr.model.Movie;
 import kz.attractorschool.moviereviewrr.repository.MovieRepository;
+import lombok.AllArgsConstructor;
 import org.springframework.data.domain.Page;
 import org.springframework.data.domain.PageRequest;
 import org.springframework.data.domain.Pageable;
 import org.springframework.data.domain.Sort;
+import org.springframework.stereotype.Service;
 
 import java.util.List;
 
+@Service
+@AllArgsConstructor
 public class MovieService {
     private MovieRepository movieRepository;
 
