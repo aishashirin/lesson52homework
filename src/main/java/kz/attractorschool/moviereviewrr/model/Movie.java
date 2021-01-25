@@ -27,8 +27,10 @@ public class Movie {
     @Builder.Default
     private String id = UUID.randomUUID().toString();
 
+    @Indexed
     private String title;
     private String poster;
+    @Indexed
     private int releaseYear;
 
     @Builder.Default
