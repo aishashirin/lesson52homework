@@ -5,16 +5,22 @@ import kz.attractorschool.moviereviewrr.repository.UserRepository;
 import lombok.AllArgsConstructor;
 import org.springframework.stereotype.Service;
 
+import java.util.Optional;
+
 @Service
 @AllArgsConstructor
 public class UserService {
     private UserRepository userRepository;
 
-    private boolean checkEmail(String email){
+    public boolean checkEmail(String email){
         return userRepository.existByEmail(email);
     }
 
-    private User findByName(String name){
+    public User findByName(String name){
         return userRepository.findByName(name);
     }
+    public Optional<User> findById(String id) {
+        return userRepository.findById(id);
+    }
+
 }

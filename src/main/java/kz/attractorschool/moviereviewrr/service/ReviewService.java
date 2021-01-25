@@ -15,8 +15,8 @@ import java.util.Optional;
 public class ReviewService {
     private ReviewRepository reviewRepository;
 
-    public List<Review> findByReviewerOrMovie(Optional<User> user, Optional<Movie> movie){
-        return reviewRepository.findByReviewerOrMovie(user, movie);
+    public List<Review> findByReviewer(Optional<User> user){
+        return reviewRepository.findByReviewer(user);
     }
 
     public List<Review> findByMovie(Optional<Movie> movie){

@@ -11,7 +11,7 @@ import java.util.Optional;
 
 @Repository
 public interface ReviewRepository extends CrudRepository<Review, String> {
-    List<Review> findByReviewerOrMovie(Optional<User> reviewer, Optional<Movie> movie);
+    List<Review> findByReviewer(Optional<User> reviewer);
 
     List<Review> findByMovie(Optional<Movie> movie);
 
