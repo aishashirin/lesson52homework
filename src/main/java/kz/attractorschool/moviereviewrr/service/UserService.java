@@ -13,7 +13,7 @@ public class UserService {
     private final UserRepository userRepository;
 
     public boolean checkEmail(String email){
-        return userRepository.existByEmail(email);
+        return userRepository.existsByEmail(email);
     }
 
     public User findByName(String name){

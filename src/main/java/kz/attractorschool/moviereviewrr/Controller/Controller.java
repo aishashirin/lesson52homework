@@ -25,8 +25,8 @@ public class Controller {
     @Autowired
     MovieService movieService;
 
-    @GetMapping("/email{email}")
-    public boolean checkUserById(@PathVariable("email") String email) {
+    @GetMapping("/email")
+    public boolean checkUserById(@RequestParam("email") String email) {
         return userService.checkEmail(email);
     }
 
