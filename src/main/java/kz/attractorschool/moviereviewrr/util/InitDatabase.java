@@ -24,7 +24,6 @@ import static java.util.stream.Collectors.*;
 
 @Configuration
 public class InitDatabase {
-
     private static final Random r = new Random();
 
     @Bean
@@ -44,7 +43,7 @@ public class InitDatabase {
             List<Review> reviews = new ArrayList<>();
 
             users.forEach(user -> {
-                selectRandomMovies(movies, r.nextInt(3)+1).stream()
+                selectRandomMovies(movies, r.nextInt(3) + 1).stream()
                         .map(movie -> Review.random(user, movie))
                         .peek(reviews::add)
                         .forEach(reviewRepository::save);
@@ -52,7 +51,7 @@ public class InitDatabase {
 
             reviews.stream()
                     .collect(groupingBy(Review::getMovie, averagingDouble(Review::getStars)))
-            .forEach(Movie::setRating);
+                    .forEach(Movie::setRating);
 
             movieRepo.saveAll(movies);
         };
@@ -73,7 +72,8 @@ public class InitDatabase {
         try {
             ObjectMapper mapper = new ObjectMapper();
             var data = Files.readString(Paths.get(fileName));
-            var listType = new TypeReference<List<Movie>>(){};
+            var listType = new TypeReference<List<Movie>>() {
+            };
             return mapper.readValue(data, listType);
         } catch (IOException e) {
             e.printStackTrace();

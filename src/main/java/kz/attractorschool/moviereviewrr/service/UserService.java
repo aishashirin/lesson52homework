@@ -10,7 +10,7 @@ import java.util.Optional;
 @Service
 @AllArgsConstructor
 public class UserService {
-    private UserRepository userRepository;
+    private final UserRepository userRepository;
 
     public boolean checkEmail(String email){
         return userRepository.existByEmail(email);
