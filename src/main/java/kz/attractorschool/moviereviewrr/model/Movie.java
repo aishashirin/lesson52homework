@@ -24,6 +24,7 @@ public class Movie {
     private static final Random r = new Random();
 
     @Id
+    @Indexed
     @Builder.Default
     private String id = UUID.randomUUID().toString();
 
@@ -34,9 +35,11 @@ public class Movie {
     private int releaseYear;
 
     @Builder.Default
+    @Indexed
     private List<String> directors = new ArrayList<>();
 
     @Builder.Default
+    @Indexed
     private List<String> actors = new ArrayList<>();
 
     // I think rating should be calculated upon adding a review and updated in the document

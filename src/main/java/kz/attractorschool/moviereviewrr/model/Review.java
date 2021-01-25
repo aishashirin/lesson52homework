@@ -3,6 +3,7 @@ package kz.attractorschool.moviereviewrr.model;
 import kz.attractorschool.moviereviewrr.util.Generator;
 import lombok.*;
 import org.springframework.data.annotation.Id;
+import org.springframework.data.mongodb.core.index.Indexed;
 import org.springframework.data.mongodb.core.mapping.DBRef;
 import org.springframework.data.mongodb.core.mapping.Document;
 
@@ -24,12 +25,15 @@ public class Review {
 
     private int stars;
 
+    @Indexed
     private String review;
 
     @DBRef
+    @Indexed
     private User reviewer;
 
     @DBRef
+    @Indexed
     private Movie movie;
 
     public static Review random(User reviewer, Movie toMovie) {
